@@ -12,27 +12,27 @@ hashPasswordGenerator=async(pass)=>{
 router.post("/add",async(req,res)=>{
     let {data}={"data":req.body}
     let password=data.password
-    // hashPasswordGenerator(password).then(
-    //     (hashedPassword)=>{
-    //         console.log(hashedPassword)
-    //         data.password=hashedPassword
-    //         console.log(data)
-    //         let userObj=new userModel(data)
+    hashPasswordGenerator(password).then(
+        (hashedPassword)=>{
+            console.log(hashedPassword)
+            data.password=hashedPassword
+            console.log(data)
+            let userObj=new userModel(data)
 
-    //         let result= userObj.save()
-    //         res.json({
-    //         status:"success"
-    //         })
-    //     }
-    // )
-    const hashedPassword=await hashedPasswordGenerator(password)
-    data.password=hashedPassword
-    let user=new userModel(data)
-         let result=await user.save()
-         res.json({
-            status:"success"         
+            let result= userObj.save()
+            res.json({
+            status:"success"
+            })
+        }
+    )
+    // const hashedPassword=await hashedPasswordGenerator(password)
+    // data.password=hashedPassword
+    // let user=new userModel(data)
+    //      let result=await user.save()
+    //      res.json({
+    //         status:"success"         
 
-        })
+    //     })
 
 })
 
