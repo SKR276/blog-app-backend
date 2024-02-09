@@ -2,6 +2,7 @@ const express=require("express")
 const cors=require("cors")
 const mongoose=require("mongoose")
 const userRoute=require("./controllers/userRouter")
+const postRoute=require("./controllers/postRouter")
 
 const app=express()
 
@@ -13,6 +14,7 @@ mongoose.connect("mongodb+srv://sreelakshmi:Skr1234@cluster0.p9kjpl1.mongodb.net
 )
 
 app.use("/api/userBlog",userRoute)
+app.use("/api/post",postRoute)
 
 app.listen(3001,()=>{
     console.log("server running")
