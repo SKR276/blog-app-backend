@@ -17,3 +17,4 @@ app.use("/api/userBlog",userRoute)
 app.listen(3001,()=>{
     console.log("server running")
 })
+
