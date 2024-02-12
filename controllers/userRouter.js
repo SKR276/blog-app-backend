@@ -62,9 +62,11 @@ router.post("/signin",async(req,res)=>{
             }
         )
     }
-    res.json({
-        status:"success"
-    })
+    res.json(
+        {
+            status:"success","userdata":data
+        }
+    )
 })
 
 router.get("/viewall",async(req,res)=>{
